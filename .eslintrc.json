@@ -8,5 +8,10 @@
     "parserOptions": {
         "ecmaVersions": 2018,
         "sourceType": "module"
-    }
+    },
+    "rules": {
+        "indent": "off",
+        "semi": 0,
+        "no-console": "off"
+     }
 }
