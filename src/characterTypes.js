@@ -1,6 +1,5 @@
 const heroesList = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie']
 
-
 const functionsValidation = {
     validateName: (name) => {
         if (name.length < 2 || name.length > 10) {
@@ -8,30 +7,15 @@ const functionsValidation = {
         }
         return true;
     },
-    
+
     validateType: (type) => {
         if (heroesList.includes(type)) {
             return true;
         }
         return false;
-    }
+    },
 
 }
-
-
-// function validateName(name) {
-//     if (name.length < 2 || name.length > 10) {
-//         return false;
-//     }
-//     return true;
-// }
-
-// function validateType(type) {
-//     if (heroesList.includes(type)) {
-//         return true;
-//     }
-//     return false;
-// }
 
 class Character {
     /**
