@@ -1,18 +1,37 @@
 const heroesList = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie']
 
-function validateName(name) {
-    if (name.length < 2 || name.length > 10) {
+
+const functionsValidation = {
+    validateName: (name) => {
+        if (name.length < 2 || name.length > 10) {
+            return false;
+        }
+        return true;
+    },
+    
+    validateType: (type) => {
+        if (heroesList.includes(type)) {
+            return true;
+        }
         return false;
     }
-    return true;
+
 }
 
-function validateType(type) {
-    if (heroesList.includes(type)) {
-        return true;
-    }
-    return false;
-}
+
+// function validateName(name) {
+//     if (name.length < 2 || name.length > 10) {
+//         return false;
+//     }
+//     return true;
+// }
+
+// function validateType(type) {
+//     if (heroesList.includes(type)) {
+//         return true;
+//     }
+//     return false;
+// }
 
 class Character {
     /**
@@ -20,15 +39,15 @@ class Character {
      * Added validation for name field. Health and Level must be the same for all childs classes
      * */
 
-    constructor(name, type) {
+    constructor(name) {
         this.name = name
-        this.type = type
         this.health = 100
         this.level = 1
 
-        if (!validateName(this.name)) {
+        if (!functionsValidation.validateName(this.name)) {
+            console.log(name)
             console.log('Check the name field!')
-            throw new Error('Invalida date - name')
+            throw new Error('Invalid date - name')
         }
     }
 
@@ -50,9 +69,9 @@ class Bowerman extends Character {
         this.defence = 25
         this.type = 'Bowman'
 
-        if (!validateType(this.type)) {
+        if (!functionsValidation.validateType(this.type)) {
             console.log('Check the type. It is incorrect')
-            throw new Error('Invalida date - type')
+            throw new Error('Invalid date - type')
         }
     }
 }
@@ -64,9 +83,9 @@ class Swordsman extends Character {
         this.defence = 10
         this.type = 'Swordsman'
 
-        if (!validateType(this.type)) {
+        if (!functionsValidation.validateType(this.type)) {
             console.log('Check the type. It is incorrect')
-            throw new Error('Invalida date - type')
+            throw new Error('Invalid date - type')
         }
     }
 }
@@ -78,9 +97,9 @@ class Magician extends Character {
         this.defence = 40
         this.type = 'Magician'
 
-        if (!validateType(this.type)) {
+        if (!functionsValidation.validateType(this.type)) {
             console.log('Check the type. It is incorrect')
-            throw new Error('Invalida date - type')
+            throw new Error('Invalid date - type')
         }
     }
 }
@@ -92,9 +111,9 @@ class Daemon extends Character {
         this.defence = 40
         this.type = 'Daemon'
 
-        if (!validateType(this.type)) {
+        if (!functionsValidation.validateType(this.type)) {
             console.log('Check the type. It is incorrect')
-            throw new Error('Invalida date - type')
+            throw new Error('Invalid date - type')
         }
     }
 }
@@ -106,9 +125,9 @@ class Undead extends Character {
         this.defence = 25
         this.type = 'Undead'
 
-        if (!validateType(this.type)) {
+        if (!functionsValidation.validateType(this.type)) {
             console.log('Check the type. It is incorrect')
-            throw new Error('Invalida date - type')
+            throw new Error('Invalid date - type')
         }
     }
 }
@@ -120,15 +139,19 @@ class Zombie extends Character {
         this.defence = 10
         this.type = 'Zombie'
 
-        if (!validateType(this.type)) {
+        if (!functionsValidation.validateType(this.type)) {
             console.log('Check the type. It is incorrect')
-            throw new Error('Invalida date - type')
+            throw new Error('Invalid date - type')
         }
     }
 }
 
-const user1 = new Zombie('Sammi')
-console.log(user1)
+// const user1 = new Zombie('Sammi')
+// console.log(user1)
 
-user1.levelUp()
-console.log(user1)
+// user1.levelUp()
+// console.log(user1)
+
+module.exports = Character;
+module.exports = Zombie;
+module.exports = Undead;
